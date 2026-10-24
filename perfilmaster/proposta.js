@@ -7,6 +7,10 @@ function activateTab(tab, focus = false) {
     item.tabIndex = active ? 0 : -1;
     document.getElementById(item.getAttribute('aria-controls')).hidden = !active;
   });
+  const galleryLabels = { 'tab-principal': ['Logo principal', '2 versões: fundo claro e fundo escuro.'], 'tab-horizontal': ['Formato horizontal', '2 versões: texto preto e texto branco.'], 'tab-icones': ['Ícones para perfis', '2 versões: azul e vermelho.'] };
+  const labels = galleryLabels[tab.id];
+  document.querySelector('#gallery-current').textContent = labels[0];
+  document.querySelector('#gallery-description').textContent = labels[1];
   if (focus) tab.focus();
 }
 tabs.forEach((tab, index) => {
